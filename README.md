@@ -2,11 +2,13 @@
 
 ## Building
 Run the following in the project root directory
-`conan install .
+
+```
+conan install .
 cmake .
 make
-`
+```
 
 ## Running Unit Tests
-`Sorting Tests
-./bin/sorting_tests`
+### Sorting Tests
+`./bin/sorting_tests`
