@@ -13,19 +13,20 @@ FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
 COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-Description: Implemetation of insertion sort algorithm
 */
 
-#include <insertionSort.hpp>
+#include <vector>
 
-vector<int> insertion_sort(vector<int> data){
+using namespace std;
+
+template <typename Type>
+vector<Type> insertion_sort(vector<Type> data){
   for(unsigned keyIndex = 1; keyIndex < data.size(); ++keyIndex){
     for(unsigned compareIndex = 0; compareIndex < keyIndex; ++compareIndex){
       if(data[keyIndex] < data[compareIndex]){
-        auto tempNum{data[compareIndex]};
+        auto tempData{data[compareIndex]};
         data[compareIndex] = data[keyIndex];
-        data[keyIndex] = tempNum;
+        data[keyIndex] = tempData;
       }
     }
   }

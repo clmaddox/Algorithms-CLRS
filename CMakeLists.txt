@@ -13,13 +13,11 @@ add_compile_options(-W -Wall -Werror)
 
 # Soring Library
 set(SORTING_LIB sorting)
-set(SORTING_INCLUDE_DIR ${ALGORITHMS_CLRS_SOURCE_DIR}/sorting/include)
-set(SORTING_SOURCE_DIR ${ALGORITHMS_CLRS_SOURCE_DIR}/sorting/src)
+set(SORTING_INCLUDE_DIR ${ALGORITHMS_CLRS_SOURCE_DIR}/sorting)
 set(SORTING_INCLUDES ${SORTING_INCLUDE_DIR}/insertionSort.hpp)
-set(SORTING_SOURCES ${SORTING_SOURCE_DIR}/insertionSort.cpp)
 
-add_library(${SORTING_LIB} ${SORTING_SOURCES})
-target_include_directories(${SORTING_LIB} PRIVATE ${SORTING_INCLUDE_DIR})
+add_library(${SORTING_LIB} INTERFACE)
+target_sources(${SORTING_LIB} INTERFACE ${SORTING_INCLUDES})
 
 # Sorting Tests
 set(SORTING_TEST sorting_tests)
