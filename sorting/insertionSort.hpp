@@ -19,16 +19,17 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 using namespace std;
 
-template <typename Type>
-vector<Type> insertion_sort(vector<Type> data){
-  for(unsigned keyIndex = 1; keyIndex < data.size(); ++keyIndex){
-    for(unsigned compareIndex = 0; compareIndex < keyIndex; ++compareIndex){
-      if(data[keyIndex] < data[compareIndex]){
-        auto tempData{data[compareIndex]};
-        data[compareIndex] = data[keyIndex];
-        data[keyIndex] = tempData;
+template <class RandomAccessIterator>
+void insertion_sort(RandomAccessIterator start, RandomAccessIterator end){
+  auto compareIter{start};
+  while(compareIter != end){
+    auto check{start};
+    while(check != end){
+      if(*compareIter < *check){
+        swap(*compareIter, *check);
       }
+      check++;
     }
+    compareIter++;
   }
-  return data;
 }
